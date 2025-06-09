@@ -8,7 +8,7 @@ class Book(models.Model):
     author = models.CharField(max_length=300)
     genre = models.CharField(max_length=100)
     release_year = models.IntegerField()
-    # slug = models.SlugField(null=True, unique=True, blank=True)
+    slug = models.SlugField(null=True, unique=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
@@ -18,3 +18,9 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+
+        return super().save(*args, **kwargs)
