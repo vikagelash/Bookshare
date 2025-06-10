@@ -10,6 +10,7 @@ class Book(models.Model):
     release_year = models.IntegerField()
     slug = models.SlugField(null=True, unique=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='book_images/', null=True, blank=True)
 
     class Meta:
         verbose_name = "Book"
