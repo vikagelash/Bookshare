@@ -1,10 +1,7 @@
-from django.db.models import Q
 from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.response import Response
-
-from user.permissions import IsOwnerOrReadOnly
 from .models import Book, Interest
 from .serializers import BookSerializer, InterestSerializer
 
