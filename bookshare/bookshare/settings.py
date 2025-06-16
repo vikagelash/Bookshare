@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'user',
     'book',
     'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [

@@ -16,9 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.schemas import get_schema_view
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view as swagger_get_schema_view
+
 import book.urls as book_urls
 
+schema_view = swagger_get_schema_view(openapi.Info(
+    title="Bookshare API Schema",
+    description="API Schema for our API",
+    default_version="1.0.0"
+), public=True)
+
 urlpatterns = [
+    path("swagger/", schema_view.with_ui("swagger"), name="swagger"),
+
     path('admin/', admin.site.urls),
     path('api/', include(book_urls.router.urls)),
     path('api/user/', include("user.urls")),
