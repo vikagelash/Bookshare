@@ -1,7 +1,7 @@
 წიგნების გაცემის სერვისის API
 ეს არის RESTful API წიგნების გაცემის სერვისისთვის, სადაც რეგისტრირებულ მომხმარებლებს შეუძლიათ უფასოდ შესთავაზონ წიგნები და ასევე აიღონ სხვების მიერ შეთავაზებული წიგნები. არარეგისტრირებულ მომხმარებლებს აქვთ შესაძლებლობა, დაათვალიერონ ხელმისაწვდომი წიგნების სია.
 
-* * *ბ  ძირითადი ფუნქციები
+* * * ძირითადი ფუნქციები
 მომხმარებლის აუტენთიფიკაცია:
 
 რეგისტრაცია (ელფოსტის და პაროლის გამოყენებით).
@@ -32,15 +32,15 @@ is_available ველი, რომელიც მიუთითებს წ
 * * * ტექნოლოგიური სტეკი
 
 Backend: Python, Django 
-
 API Framework: Django REST Framework
-
 Database: SQLite
+Swagger
+Git
 
 
 
 * * * API ენდპოინტები
-თქვენი API-ის ძირითადი ენდპოინტებია:
+API-ის ძირითადი ენდპოინტებია:
 
 მომხმარებლის ავთენტიფიკაცია (/api/user/)
 რეგისტრაცია: POST /api/user/register/
@@ -58,7 +58,7 @@ Headers: Authorization: Token <თქვენი_ტოკენი>
 წიგნების მართვა (/api/books/)
 ყველა წიგნის სია: GET /api/books/
 
-ახალი წიგნის შექმნა: POST /api/books/ (საჭიროებს ავთენტიფიკაციას)
+ახალი წიგნის შექმნა: POST /api/books/ (საჭიროებს ავთენტიფიკაციასს)
 
 Body: title, author, genre, release_year, location, image (multipart/form-data-სთვის)
 
@@ -70,13 +70,13 @@ Body: title, author, genre, release_year, location, image (multipart/form-data-�
 
 წიგნის წაშლა: DELETE /api/books/{slug}/ (მხოლოდ მფლობელს)
 
-წიგნზე გამოთქმული ინტერესების სია: GET /api/books/{slug}/interests/ (მხოლოდ წიგნის მფლობელს)
+წიგნზე გამოთქმული ინტერესების სია: GET /api/books/{slug}/interests/      (მხოლოდ წიგნის   მფლობელს)
 
-ინტერესის მიღება: POST /api/books/{slug}/accept-interest/ (მხოლოდ წიგნის მფლობელს)
+ინტერესის მიღება: POST /api/books/{slug}/accept-interest/      (მხოლოდ წიგნის მფლობელს)
 
 Body: interest_id
 
-ინტერესის უარყოფა: POST /api/books/{slug}/reject-interest/ (მხოლოდ წიგნის მფლობელს)
+ინტერესის უარყოფა: POST /api/books/{slug}/reject-interest/ (მხოლოთ წიგნის მფლობელს)
 
 Body: interest_id
 
@@ -90,4 +90,7 @@ Body: book_slug
 კონკრეტული ინტერესის დეტალები: GET /api/interests/{id}/
 
 ინტერესის წაშლა: DELETE /api/interests/{id}/ (მხოლოდ ინტერესის გამომხატველს, თუ არ არის მიღებული)
+
+სვაგერის დოკუმენტაცია /swagger
+
 
